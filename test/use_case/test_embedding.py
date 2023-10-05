@@ -9,7 +9,7 @@ from use_case.embedding_minilm import EmbeddingMiniLMUseCase
 class TestUseCaseEmbedding(unittest.TestCase):
     def test_embedding_minillm(self):
         use_case = EmbeddingMiniLMUseCase()
-        embedding = use_case.execute()
+        embedding = use_case.get_embeddings()
         assert embedding is not None
 
 
