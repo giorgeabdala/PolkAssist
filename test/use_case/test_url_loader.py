@@ -1,14 +1,12 @@
 import unittest
 from typing import List
 
-from use_case.loader_url import LoaderUrlUseCase
-from langchain.schema.document import Document
-
+import loader_url
 
 class TestUseCaseLoaderUrl(unittest.TestCase):
     def test_loaderUrlUsecase(self):
         url = "https://wiki.polkadot.network/docs/learn-polkadot-host"
-        use_case = LoaderUrlUseCase()
+        use_case = loader_url.LoaderUrlUseCase()
         docs = use_case.execute(url)
         assert isinstance(docs, List)
         assert len(docs) > 0
