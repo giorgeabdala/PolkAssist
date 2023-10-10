@@ -16,41 +16,19 @@ class PageFunctions:
         driver.implicitly_wait(10)
 
     @staticmethod
-    def open_sidebar_learn(driver, url):
-        learn_buttons = "//div[@class='menu__list-item-collapsible']//a[@class='menu__link menu__link--sublist']"
-
+    def open_sidebar(driver, url, xpath_buttons):
         driver.get(url)
         
         while True:
-            buttons = driver.find_elements(By.XPATH, learn_buttons)
+            buttons = driver.find_elements(By.XPATH, xpath_buttons)
 
             for button in buttons:
                 button.click()
                 time.sleep(1)
 
-            new_buttons = driver.find_elements(By.XPATH, learn_buttons)
+            new_buttons = driver.find_elements(By.XPATH, xpath_buttons)
 
             if len(new_buttons) == len(buttons):
-                break
-        
-        print("### SIDEBAR OPENED. ###\n")
-
-    @staticmethod
-    def open_sidebar_build(driver, url):
-        build_buttons = "//div[@class='menu__list-item-collapsible']//a[@class='menu__link menu__link--sublist menu__link--sublist-caret']"
-
-        driver.get(url)
-        
-        while True:
-            buttons2 = driver.find_elements(By.XPATH, build_buttons)
-
-            for button2 in buttons2:
-                button2.click()
-                time.sleep(1)
-
-            new_buttons2 = driver.find_elements(By.XPATH, build_buttons)
-
-            if len(new_buttons2) > len(buttons2):
                 break
         
         print("### SIDEBAR OPENED. ###\n")
